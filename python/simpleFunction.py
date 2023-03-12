@@ -1,3 +1,5 @@
+# Print a 'hi' message followed by the names from a list
+
 def hello(esm):
     print ('hi', esm)
 
