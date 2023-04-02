@@ -36,6 +36,10 @@ plt.annotate('Peak correlation', xy=(peak_index, max(corr_result)), xytext=(peak
                 arrowprops=dict(facecolor='red', shrink=0.05))
 plt.show()
 
+# print the peak correlation
+print(f'The peak correlation value is: {max(corr_result)} at shift number: {peak_index}')
+
+
 # print the correlation result table
 print('Bit\tFrame Type\tPreamble\tResult')
 for i in range(len(frame_type)):
