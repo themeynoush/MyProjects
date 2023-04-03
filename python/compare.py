@@ -1,3 +1,4 @@
+
 # Studying correlation computation between a FT and Received_Flow in Sigfox Network
 # Author: Meynoush - github: @themeynoush
 
@@ -28,17 +29,6 @@ for i in range(len(Received_Flow)):
     for j in range(min(len(frame_type_1), len(Received_Flow) - i)):
         corr_result_1[i] += frame_type_1[j] * Received_Flow[i+j]
 
-# find the index of the peak correlation 0x006B
-peak_index = corr_result_1.index(max(corr_result_1))
-# find the index of the peak correlation 0x008D
-peak_index = corr_result_2.index(max(corr_result_2))
-# find the index of the peak correlation 0x035D
-peak_index = corr_result_3.index(max(corr_result_3))
-
-# plot the correlation result
-import matplotlib.pyplot as plt
-import numpy as np
-
 # repeat the correlation between the Received_Flow and each frame type
 corr_result_2 = [0] * (len(Received_Flow) + len(frame_type_2) - 1)
 for i in range(len(Received_Flow)):
@@ -49,6 +39,18 @@ corr_result_3 = [0] * (len(Received_Flow) + len(frame_type_3) - 1)
 for i in range(len(Received_Flow)):
     for j in range(min(len(frame_type_3), len(Received_Flow) - i)):
         corr_result_3[i] += frame_type_3[j] * Received_Flow[i+j]
+
+# find the index of the peak correlation 0x006B
+peak_index = corr_result_1.index(max(corr_result_1))
+# find the index of the peak correlation 0x008D
+peak_index = corr_result_2.index(max(corr_result_2))
+# find the index of the peak correlation 0x035D
+peak_index = corr_result_3.index(max(corr_result_3))
+
+
+# plot the correlation result
+import matplotlib.pyplot as plt
+import numpy as np
 
 # plot all the correlation results in one figure for comparison
 plt.figure(figsize=(10, 5))
@@ -73,5 +75,4 @@ print(f'The peak correlation for 0x035D: {max(corr_result_3)}\n')
 #     for j in range(len(Received_Flow)):
 #         result = frame_type_1[i] * Received_Flow[j]
 #         print(f'{i+j}\t{frame_type_1[i]}\t\t{Received_Flow[j]}\t\t{result}')
-
 
