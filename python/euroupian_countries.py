@@ -59,4 +59,5 @@ def get_capital(country):
 user_country = input("Enter the name of a country in Europe: ")
 capital = get_capital(user_country)
 
-print(f"The capital city of {user_country} is {capital}.")
+print(f"The capital city of {user_country} is {capital}.\n")
+print("Run the program for another country")
