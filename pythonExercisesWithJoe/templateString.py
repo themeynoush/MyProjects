@@ -1,0 +1,1 @@
+# demonstrate template string functions
